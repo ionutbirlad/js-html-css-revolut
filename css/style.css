@@ -1,0 +1,139 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  height: 90px;
+  background: #c23616;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.container{
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+h1{
+  float: left;
+  cursor: pointer;
+  line-height: 90px;
+}
+h1 a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu{
+  float: right;
+  line-height: 90px;
+  position: relative;
+}
+.menu .fas.fa-times{
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.menu li{
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+}
+.menu li a{
+  text-decoration: none;
+  color: inherit;
+  vertical-align: middle;
+}
+.menu li a i{
+  line-height: 90px;
+  float: right;
+  padding-left: 10px;
+}
+
+.btn{
+  cursor: pointer;
+  margin-left: 25px;
+  color: inherit;
+  background: #192a56;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.fas.fa-bars{
+  float: right;
+  cursor: pointer;
+  display: none;
+  line-height: 90px;
+  padding-right: 20px;
+  font-size: 2rem;
+}
+.dropdown{
+  display: none;
+  /* z-index: -9999; */
+  position: absolute;
+  min-width: 200px;
+  height: 350px;
+  background: #fbc531;
+  border-radius: 5px;
+}
+.dropdown::after{
+  content: "";
+  width: 30px;
+  height: 30px;
+  background: #fbc531;
+  position: absolute;
+  display: block;
+  top: -15px;
+  left: 6px;
+  z-index: 9999;
+  transform: rotate(45deg);
+}
+/* .dropdown.active{
+  display: block;
+} */
+.dropdown .drop-item{
+  width: 100%;
+  text-align: center;
+}
+
+@media all and (max-width: 800px) {
+  .fas.fa-bars{
+    display: block;
+  }
+
+  .menu{
+    display: none;
+    position: absolute;
+    width: 80vw;
+    height: 100vh;
+    right: 0;
+    background: red;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+  }
+
+  .menu .li{
+    display: block;
+  }
+
+  .menu .fas.fa-times{
+    display: block;
+  }
+
+  .btn{
+    background: inherit;
+    padding: 0;
+    font-size: 1rem;
+    margin: 0;
+  }
+}

@@ -11,10 +11,10 @@ $(document).ready(function () {
   });
 
   $(".fa-bars").click(function () {
-    $(".menu").slideDown(500);
+    $(".menu").toggleClass("active");
   });
   $(".fa-times").click(function () {
-    $(".menu").slideUp(500);
+    $(".menu").toggleClass("active");
   });
 
 

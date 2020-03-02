@@ -4,9 +4,13 @@
   box-sizing: border-box;
 }
 
+body{
+  overflow: hidden;
+}
+
 header{
   height: 90px;
-  background: #c23616;
+  background: #487eb0;
   text-transform: uppercase;
   color: #fff;
 }
@@ -31,6 +35,7 @@ h1 a{
   float: right;
   line-height: 90px;
   position: relative;
+
 }
 .menu .fas.fa-times{
   display: none;
@@ -44,12 +49,39 @@ h1 a{
   position: relative;
   display: inline-block;
   padding: 0 15px;
+
 }
+
 .menu li a{
   text-decoration: none;
   color: inherit;
   vertical-align: middle;
+  position: relative;
+
 }
+.menu a::after{
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background: #c23616;
+  margin: 0;
+  padding: 0;
+  left: -350px;
+  bottom: -5px;
+  transition: 0.4s;
+  opacity: 0;
+  transform: scale(0);
+  clip-path: circle(0);
+}
+.menu a:hover::after{
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  transition: 0.4s;
+  opacity: 1;
+  clip-path: circle(100%);
+}
+
 .menu li a i{
   line-height: 90px;
   float: right;
@@ -60,11 +92,16 @@ h1 a{
   cursor: pointer;
   margin-left: 25px;
   color: inherit;
-  background: #192a56;
+  background: none;
   padding: 10px 25px;
-  border: none;
+  border: 2px solid #fff;
   border-radius: 5px;
   text-transform: uppercase;
+  transition: 0.4s;
+  font-weight: 700;
+}
+.btn:hover{
+  background: #c23616;
 }
 
 .fas.fa-bars{
@@ -80,15 +117,19 @@ h1 a{
   /* z-index: -9999; */
   position: absolute;
   min-width: 200px;
-  height: 350px;
-  background: #fbc531;
+  /* height: 380px; */
+  background: #fff;
+  color: #000000;
   border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
 .dropdown::after{
   content: "";
   width: 30px;
   height: 30px;
-  background: #fbc531;
+  background: #fff;
   position: absolute;
   display: block;
   top: -15px;
@@ -100,8 +141,14 @@ h1 a{
   display: block;
 } */
 .dropdown .drop-item{
-  width: 100%;
+  margin: 0 auto;
+  width: 60%;
+  height: 60px;
   text-align: center;
+  border-bottom: 2px solid #00000080;
+}
+.dropdown .drop-item.last{
+  border: none;
 }
 
 @media all and (max-width: 800px) {
@@ -110,16 +157,16 @@ h1 a{
   }
 
   .menu{
-    display: none;
     position: absolute;
-    width: 80vw;
+    width: 80%;
     height: 100vh;
-    right: 0;
-    background: red;
-    /* display: flex;
+    right: -100%;
+    background: #487eb0;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
+    transition: 0.7s;
   }
 
   .menu .li{
@@ -135,5 +182,10 @@ h1 a{
     padding: 0;
     font-size: 1rem;
     margin: 0;
+    border: none;
+  }
+
+  .menu.active{
+    right: 0;
   }
 }
